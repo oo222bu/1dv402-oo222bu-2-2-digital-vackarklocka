@@ -110,12 +110,20 @@ namespace _1dv402_oo222bu_2_2_digital_vackarklocka
             Console.WriteLine(message);
             Console.ResetColor();
         }
-        private static void Run(AlarmClock ac, int minutes) 
-        {
+        private static void Run(AlarmClock ac, int minutes)
+        {            
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" ╔══════════════════════════════════════╗ ");
+            Console.WriteLine(" ║       Väckarklockan URLED (TM)       ║ ");
+            Console.WriteLine(" ║        Modellnr:1DV402S2L2A          ║ ");
+            Console.WriteLine(" ╚══════════════════════════════════════╝ ");
+            Console.WriteLine();
+            Console.ResetColor();       
             for (int i = 0; i < minutes; i++)
             {
                 if (ac.TickTock() == true)
-                {
+                {                    
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.WriteLine(ac.ToString() + "BEEP! BEEP! BEEP!");
                     Console.ResetColor();
