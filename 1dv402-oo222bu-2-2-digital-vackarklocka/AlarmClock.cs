@@ -6,58 +6,79 @@ using System.Threading.Tasks;
 
 namespace _1dv402_oo222bu_2_2_digital_vackarklocka
 {
-    class AlarmClock
+    public class AlarmClock
     {
         //Börjar med att initiera variablerna
         private int _alarmHour;
         private int _alarmMinute;
         private int _hour;
         private int _minute;
+
         //Skapar deras egenskaper
         public int AlarmHour
         {
             get { return _alarmHour; }
-            set {
-                    if (value < 0 || value > 23)
-                    {
-                        throw new ArgumentException();
-                    }
-                    _alarmHour = value;
+            set
+            {
+                if (value < 0 || value > 23)
+                {
+                    throw new ArgumentException();
                 }
+                _alarmHour = value;
+            }
         }
-        public int AlarmMinute 
+        
+        public int AlarmMinute
         {
-            get { return _alarmMinute; } 
-            set {
-                    if (value < 0 || value > 59)
-                    {
-                        throw new ArgumentException();
-                    }
-                    _alarmMinute = value;
+            get { return _alarmMinute; }
+            set
+            {
+                if (value < 0 || value > 59)
+                {
+                    throw new ArgumentException();
                 }
+                _alarmMinute = value;
+            }
         }
-        public int Hour 
+        
+        public int Hour
         {
-            get { return _hour; } 
-            set {
-                    if (value < 0 || value > 23)
-                    {
-                        throw new ArgumentException();
-                    }
-                    _hour = value;
+            get { return _hour; }
+            set
+            {
+                if (value < 0 || value > 23)
+                {
+                    throw new ArgumentException();
                 }
+                _hour = value;
+            }
         }
-        public int Minute 
+        
+        public int Minute
         {
-            get { return _minute; } 
-            set {
-                    if (value < 0 || value > 59)
-                    {
-                        throw new ArgumentException();
-                    }
-                    _minute = value;
+            get { return _minute; }
+            set
+            {
+                if (value < 0 || value > 59)
+                {
+                    throw new ArgumentException();
                 }
+                _minute = value;
+            }
         }
+
+        public AlarmClock()
+            : this(0, 0)
+        {
+
+        }
+
+        public AlarmClock(int hour, int minute)
+            : this(hour, minute, 0, 0)
+        {
+
+        }
+
         //Skapar konstruktorerna som ärver ifrån varandra
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
@@ -66,15 +87,6 @@ namespace _1dv402_oo222bu_2_2_digital_vackarklocka
             AlarmHour = alarmHour;
             AlarmMinute = alarmMinute;
         }
-        public AlarmClock(int hour, int minute): this(hour, minute, 0, 0)
-        {
-
-        }
-        public AlarmClock(): this(0, 0)
-        {
-
-        }
-
 
         //Skapar metoderna
         public bool TickTock()
@@ -91,18 +103,18 @@ namespace _1dv402_oo222bu_2_2_digital_vackarklocka
                 {
                     ++Hour;
                 }
-                else Hour = 0;
+                else
+                {
+                    Hour = 0;
+                }
             }
-            if (Hour==AlarmHour && Minute==AlarmMinute)
-            {
-                return true;
-            }
-	        
-            return false;
+        
+            return Hour == AlarmHour && Minute == AlarmMinute;
         }
-        public override string ToString() 
+        
+        public override string ToString()
         {
-            return string.Format("{0,5}:{1:00} <{2}:{3:00}>",Hour,Minute,AlarmHour,AlarmMinute);
+            return string.Format("{0,5}:{1:00} <{2}:{3:00}>", Hour, Minute, AlarmHour, AlarmMinute);
         }
     }
 }

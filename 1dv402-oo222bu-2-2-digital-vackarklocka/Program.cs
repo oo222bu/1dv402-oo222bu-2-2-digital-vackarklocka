@@ -122,7 +122,7 @@ namespace _1dv402_oo222bu_2_2_digital_vackarklocka
             Console.ResetColor();       
             for (int i = 0; i < minutes; i++)
             {
-                if (ac.TickTock() == true)
+                if (ac.TickTock())
                 {                    
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.WriteLine(ac.ToString() + "BEEP! BEEP! BEEP!");
